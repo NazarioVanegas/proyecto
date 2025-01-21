@@ -1,0 +1,7 @@
+{
+  "name": "perro_caliente",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
