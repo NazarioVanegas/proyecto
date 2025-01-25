@@ -1,12 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GuardsPage } from './guards.page';
 
-describe('GuardsPage', () => {
-  let component: GuardsPage;
-  let fixture: ComponentFixture<GuardsPage>;
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AddPostModalPage } from './add-post-modal.page';
+
+describe('AddPostModalPage', () => {
+  let component: AddPostModalPage;
+  let fixture: ComponentFixture<AddPostModalPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GuardsPage);
+    fixture = TestBed.createComponent(AddPostModalPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

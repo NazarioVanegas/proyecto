@@ -1,14 +1,12 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { IntroGuard } from './guards/intro.guard';
+import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'menu/home',
     pathMatch: 'full'
   },
   {
@@ -24,25 +22,17 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'guards',
-    loadChildren: () => import('./guards/guards.module').then( m => m.GuardsPageModule)
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule), canActivate: [LoginGuard, IntroGuard]
   },
   {
-    path: 'service',
-    loadChildren: () => import('./service/service.module').then( m => m.ServicePageModule)
+    path: 'add-post-modal',
+    loadChildren: () => import('./add-post-modal/add-post-modal.module').then( m => m.AddPostModalPageModule)
   },
   {
-    path: 'assets',
-    loadChildren: () => import('./assets/assets.module').then( m => m.AssetsPageModule)
-  },
-  {
-    path: 'environments',
-    loadChildren: () => import('./environments/environments.module').then( m => m.EnvironmentsPageModule)
-  },
-  {
-    path: 'theme',
-    loadChildren: () => import('./theme/theme.module').then( m => m.ThemePageModule)
-  },
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  }
 ];
 
 @NgModule({

@@ -17,7 +17,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; //IMPORTAMOS EL CUSTOM_E
     IonicModule,
     IntroPageRoutingModule
   ],
-  declarations: [IntroPage]
+  declarations: [IntroPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] //AÑADIMOS EL CUSTOM_ELEMENTS_SCHEMA
 
 })

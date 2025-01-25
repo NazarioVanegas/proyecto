@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
@@ -40,9 +41,10 @@ export class LoginPage implements OnInit {
   }
 
   loginUser(credentials: any){
-    this.authService.login(credentials).then(res => {
+    this.authService.login(credentials).then((res: any) => {
       console.log(res);
       this.errorMessage = '';
+      this.storage.set('user', res.user);
       this.storage.set('isUserLoggedIn', true);
       this.navCtrl.navigateForward('/menu/home');
     }).catch(err => {
