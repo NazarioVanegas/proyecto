@@ -12,6 +12,15 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      <ion-item (click)="register()">
+        <ion-icon name="person-add-outline"></ion-icon> Registrar
+      </ion-item>
+      <ion-item (click)="editar_perfil()">
+        <ion-icon name="create-outline"></ion-icon> Editar perfil
+      </ion-item>
+      <ion-item (click)="buscar_usuarios()">
+        <ion-icon name="search-outline"></ion-icon> Buscar usuarios
+      </ion-item>
       <ion-item (click)="log_out()">
         <ion-icon name="log-out-outline"></ion-icon> Salir
       </ion-item>

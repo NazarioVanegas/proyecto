@@ -26,6 +26,21 @@ export class RegisterPage implements OnInit {
       email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.email
+      ])),
+      name: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      last_name: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      user: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      password_confirmation: new FormControl('', Validators.compose([
+        Validators.required
       ]))
     })
   }
@@ -34,6 +49,7 @@ export class RegisterPage implements OnInit {
   }
 
   registerUser(registerData: any){
+    console.log('Datos recibidos en el servicio:', registerData);
     this.authService.register(registerData).then(res => {
       console.log(res);
       this.errorMessage = '';
@@ -42,6 +58,9 @@ export class RegisterPage implements OnInit {
       console.log(err);
       this.errorMessage = err;
     });
+  }
+  home(){
+    this.navCtrl.navigateForward('/menu/home');
   }
 
 }

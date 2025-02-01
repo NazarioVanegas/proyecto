@@ -29,4 +29,18 @@ export class MenuPage implements OnInit {
     this.navCtrl.navigateRoot("/login");
   }
 
+  register(){
+    
+    this.navCtrl.navigateRoot("/register");
+  }
+  editar_perfil(){
+    
+    this.navCtrl.navigateRoot("/account");
+  }
+  buscar_usuarios(){
+    
+    this.navCtrl.navigateRoot("/search-user");
+  }
+
 }
+

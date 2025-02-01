@@ -7,7 +7,22 @@
 <ion-content>
   <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
     <ion-item>
+      <ion-input label="Nombre" type="text" labelPlacement="floating" placeholder="Ingrese su nombre" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Apellido" type="text" labelPlacement="floating" placeholder="Ingrese su apellido" formControlName="last_name"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-input label="Email" labelPlacement="floating" placeholder="example@email.com" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Usuario"  type="text" labelPlacement="floating" placeholder="Ingrese su usuario" formControlName="user"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Contraseña" type="password" labelPlacement="floating" placeholder="Ingrese su contraseña" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Confirme su contraseña" type="password" labelPlacement="floating" placeholder="Confirme su contraseña" formControlName="password_confirmation"></ion-input>
     </ion-item>
     <ng-container *ngFor="let error of formErrors.email">
       <ion-label color="danger"
@@ -19,9 +34,10 @@
     type="submit"
     [disabled]="!registerForm.valid"
     >Registro</ion-button>
+    <ion-button (click)="home()">volver</ion-button>
   </form>
 </ion-content>
-<!-- Agregar Nombre (name) -->
+<!-- Agrega    r Nombre (name) -->
 <!-- Agregar Apellido (lastname) -->
 <!-- Agregar Correo (email) -->
 <!-- Agregar Contraseña (username) -->
