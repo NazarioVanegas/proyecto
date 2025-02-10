@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Storage } from '@ionic/storage-angular';
@@ -82,8 +83,33 @@ export class SearchUsersPage implements OnInit {
       });
   }
 
-  unfollow(user_id: any){
-    console.log('unfollow', user_id);
+  unfollow(followee_id: any) {
+    console.log('unfollow', followee_id);
+    const user_id = this.current_user.id;
+  
+    this.userService.unfollowUser(user_id, followee_id).then(
+      (data: any) => {
+        console.log(data);
+        this.users = this.users.map((user: any) => {
+          if (user.id === followee_id) {
+            return {
+              ...user,
+              is_following: false
+            };
+          }
+          return user;
+        });
+  
+        this.current_user.followees = this.current_user.followees.filter(
+          (followedUser: any) => followedUser.id !== followee_id
+        );
+        this.storage.set('user', this.current_user);
+      }
+    ).catch(
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   toggleFollow(user: any){
